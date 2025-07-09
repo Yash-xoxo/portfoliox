@@ -55,13 +55,11 @@ const Hero = () => {
         {/* Right Content - Profile Picture in Circle with Simple Animation */}
         <div className="flex flex-col items-center justify-center relative mt-8 lg:mt-0">
           <div className="w-40 h-40 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-[#00ADB5] flex items-center justify-center animate-float bg-[#222831]/80">
-            <video
-              src="https://github.com/Yash-xoxo/Personal/raw/main/Profile%20Picture.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
+            <img
+              src="https://github.com/Yash-xoxo/Personal/blob/main/noodles%20eating%20GIF.gif?raw=true"
+              alt="Profile GIF"
               className="object-cover w-full h-full"
+              loading="lazy"
             />
           </div>
           {/* Subtle animated dots for extra calm effect */}
