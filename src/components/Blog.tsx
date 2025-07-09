@@ -44,50 +44,50 @@ const Blog = () => {
   };
 
   return (
-    <section className="py-20 bg-[#222831] text-[#EEEEEE]">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+    <section className="py-10 sm:py-20 bg-[#222831] text-[#EEEEEE]">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Technical <span className="text-[#00ADB5]">Blog</span>
           </h2>
-          <p className="text-[#EEEEEE]/70 text-lg">
+          <p className="text-[#EEEEEE]/70 text-base sm:text-lg">
             Sharing knowledge and insights from my DevOps journey
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {blogPosts.map((post, index) => (
             <div
               key={index}
-              className="bg-[#393E46] p-6 rounded-xl hover:bg-[#393E46]/80 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[#00ADB5]/10 hover:border-[#00ADB5]/30 group relative overflow-hidden"
+              className="bg-[#393E46] p-4 sm:p-6 rounded-xl hover:bg-[#393E46]/80 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[#00ADB5]/10 hover:border-[#00ADB5]/30 group relative overflow-hidden"
             >
               {/* Coming Soon Badge */}
-              <div className="absolute top-4 right-4 bg-[#00ADB5]/20 text-[#00ADB5] px-3 py-1 rounded-full text-xs font-medium">
+              <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-[#00ADB5]/20 text-[#00ADB5] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium">
                 🚧 Coming Soon
               </div>
               
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold group-hover:text-[#00ADB5] transition-colors duration-300 pr-20">
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-lg sm:text-xl font-semibold group-hover:text-[#00ADB5] transition-colors duration-300 pr-10 sm:pr-20">
                   {post.title}
                 </h3>
                 
-                <p className="text-[#EEEEEE]/80 leading-relaxed">
+                <p className="text-[#EEEEEE]/80 text-sm sm:text-base leading-relaxed">
                   {post.excerpt}
                 </p>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {post.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${getTagColor(tag)}`}
+                      className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium ${getTagColor(tag)}`}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <div className="flex items-center justify-between pt-4 border-t border-[#00ADB5]/10">
-                  <div className="flex items-center gap-4 text-[#EEEEEE]/60 text-sm">
+                <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-[#00ADB5]/10">
+                  <div className="flex items-center gap-2 sm:gap-4 text-[#EEEEEE]/60 text-xs sm:text-sm">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       {post.date}
@@ -107,8 +107,8 @@ const Blog = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <p className="text-[#EEEEEE]/60 text-lg">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-[#EEEEEE]/60 text-base sm:text-lg">
             Blog posts will be published soon. Stay tuned for technical insights and tutorials!
           </p>
         </div>

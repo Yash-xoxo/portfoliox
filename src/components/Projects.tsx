@@ -70,27 +70,27 @@ const Projects = () => {
   };
 
   return (
-    <section className="py-20 bg-[#222831] text-[#EEEEEE]">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+    <section className="py-10 sm:py-20 bg-[#222831] text-[#EEEEEE]">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Featured <span className="text-[#00ADB5]">Projects</span>
           </h2>
-          <p className="text-[#EEEEEE]/70 text-lg">
+          <p className="text-[#EEEEEE]/70 text-base sm:text-lg">
             Showcasing my latest work and contributions
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => {
             const IconComponent = getIcon(project.type);
             return (
               <div
                 key={index}
-                className="bg-[#393E46] p-6 rounded-xl hover:bg-[#393E46]/80 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[#00ADB5]/10 hover:border-[#00ADB5]/30 group"
+                className="bg-[#393E46] p-4 sm:p-6 rounded-xl hover:bg-[#393E46]/80 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[#00ADB5]/10 hover:border-[#00ADB5]/30 group"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold group-hover:text-[#00ADB5] transition-colors duration-300">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <h3 className="text-lg sm:text-xl font-semibold group-hover:text-[#00ADB5] transition-colors duration-300">
                     {project.title}
                   </h3>
                   <a
@@ -103,7 +103,7 @@ const Projects = () => {
                   </a>
                 </div>
                 
-                <p className="text-[#EEEEEE]/80 mb-4 leading-relaxed">
+                <p className="text-[#EEEEEE]/80 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                   {project.description}
                 </p>
                 

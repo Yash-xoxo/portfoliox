@@ -30,33 +30,33 @@ const Aspirations = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#393E46] text-[#EEEEEE]">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+    <section className="py-10 sm:py-20 bg-[#393E46] text-[#EEEEEE]">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Future <span className="text-[#00ADB5]">Aspirations</span>
           </h2>
-          <p className="text-[#EEEEEE]/70 text-lg">
+          <p className="text-[#EEEEEE]/70 text-base sm:text-lg">
             Goals and visions for the next chapter of my journey
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
           {aspirations.map((aspiration, index) => (
             <div
               key={index}
-              className="bg-[#222831] p-8 rounded-xl hover:bg-[#222831]/80 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[#00ADB5]/10 hover:border-[#00ADB5]/30 group"
+              className="bg-[#222831] p-4 sm:p-8 rounded-xl hover:bg-[#222831]/80 transition-all duration-300 hover:scale-105 hover:shadow-xl border border-[#00ADB5]/10 hover:border-[#00ADB5]/30 group"
             >
-              <div className="flex items-start gap-6">
-                <div className={`p-4 rounded-xl ${aspiration.color}/20 group-hover:${aspiration.color}/30 transition-colors duration-300`}>
-                  <aspiration.icon className={`w-8 h-8 ${aspiration.color.replace('bg-', 'text-')}`} />
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className={`p-3 sm:p-4 rounded-xl ${aspiration.color}/20 group-hover:${aspiration.color}/30 transition-colors duration-300`}>
+                  <aspiration.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${aspiration.color.replace('bg-', 'text-')}`} />
                 </div>
                 
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-[#00ADB5] transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 group-hover:text-[#00ADB5] transition-colors duration-300">
                     {aspiration.title}
                   </h3>
-                  <p className="text-[#EEEEEE]/80 leading-relaxed">
+                  <p className="text-[#EEEEEE]/80 text-sm sm:text-base leading-relaxed">
                     {aspiration.description}
                   </p>
                 </div>
@@ -65,8 +65,8 @@ const Aspirations = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <p className="text-[#EEEEEE]/60 text-lg italic">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-[#EEEEEE]/60 text-base sm:text-lg italic">
             "The best way to predict the future is to create it."
           </p>
         </div>
