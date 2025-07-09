@@ -95,10 +95,10 @@ function App() {
       <div ref={el => setSectionRef(el, 2)} className="fade-in-blur"><Skills /></div>
       {/* Creative Task Section */}
       <div className="fade-in-blur">
-        <section className="py-10 sm:py-20 bg-[#222831] text-[#EEEEEE]">
+        <section className="py-6 sm:py-10 bg-[#222831] text-[#EEEEEE] border-t border-b border-[#00ADB5]/10">
           <div className="max-w-6xl mx-auto px-2 sm:px-4">
-            <div className="text-center mb-10 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-2">
                 <span className="text-[#00ADB5]">Hands-On</span> Tasks
               </h2>
               <p className="text-[#EEEEEE]/70 text-base sm:text-lg">
@@ -106,71 +106,45 @@ function App() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Docker Card */}
-              <div className="bg-[#393E46] rounded-xl p-6 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform group">
-                <h3 className="text-xl font-bold mb-4 text-[#00ADB5] group-hover:underline">Docker</h3>
-                <ul className="space-y-2 list-disc list-inside text-[#EEEEEE]/90">
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Run any tool or technology in Docker.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Set up and configure Apache webserver in Docker.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Run the <span className="font-mono bg-[#222831]/60 px-1 rounded">systemctl</span> command inside a Docker container.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Run graphical software inside a Docker container.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Give sound card access to programs inside Docker.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Set up Docker inside Docker (DIND).</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Install Firefox Browser inside Docker (GUI setup).</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Play VLC inside Docker (use X11 or VNC for GUI).</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Set up Apache Server inside Docker.</a></li>
-                </ul>
-              </div>
-              {/* Python + Docker Card */}
-              <div className="bg-[#393E46] rounded-xl p-6 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform group">
-                <h3 className="text-xl font-bold mb-4 text-[#00ADB5] group-hover:underline">Python + Docker</h3>
-                <ul className="space-y-2 list-disc list-inside text-[#EEEEEE]/90">
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Run a Linear Regression Model inside Docker.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Run a Flask App inside Docker.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Run a Menu-Based Python Project inside Docker.</a></li>
-                </ul>
-              </div>
-              {/* Terminal Card */}
-              <div className="bg-[#393E46] rounded-xl p-6 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform group">
-                <h3 className="text-xl font-bold mb-4 text-[#00ADB5] group-hover:underline">Terminal</h3>
-                <ul className="space-y-2 list-disc list-inside text-[#EEEEEE]/90">
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Write a blog post on companies using Linux and their benefits.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Identify commands behind GUI programs in Linux.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Change the logo or icon of any program in Linux.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Add more terminals and GUI interfaces in Linux.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Send email, WhatsApp messages, tweets, and SMS via the Linux terminal.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Investigate the commands behind <span className="font-mono bg-[#222831]/60 px-1 rounded">Ctrl+C</span> and <span className="font-mono bg-[#222831]/60 px-1 rounded">Ctrl+Z</span> interrupts.</a></li>
-                </ul>
-              </div>
-              {/* Python Card */}
-              <div className="bg-[#393E46] rounded-xl p-6 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform group">
-                <h3 className="text-xl font-bold mb-4 text-[#00ADB5] group-hover:underline">Python</h3>
-                <ul className="space-y-2 list-disc list-inside text-[#EEEEEE]/90">
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Create an automation panel using Streamlit.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Create an automation panel using Gradio.</a></li>
-                </ul>
-              </div>
-              {/* GitHub Card */}
-              <div className="bg-[#393E46] rounded-xl p-6 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform group">
-                <h3 className="text-xl font-bold mb-4 text-[#00ADB5] group-hover:underline">GitHub</h3>
-                <ul className="space-y-2 list-disc list-inside text-[#EEEEEE]/90">
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Create a folder, initialize Git, add a file, and commit with a message.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Push changes to a new GitHub repository, create a <span className="font-mono bg-[#222831]/60 px-1 rounded">feature1</span> branch, make changes, and merge.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Fork a repository, clone it, make changes, and create a pull request.</a></li>
-                </ul>
-              </div>
-              {/* JavaScript Card */}
-              <div className="bg-[#393E46] rounded-xl p-6 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform group">
-                <h3 className="text-xl font-bold mb-4 text-[#00ADB5] group-hover:underline">JavaScript</h3>
-                <ul className="space-y-2 list-disc list-inside text-[#EEEEEE]/90">
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Capture a photo using JavaScript.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Send an email using JavaScript or an API.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Send a captured photo via email.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Record video on button click and send via email.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Send a WhatsApp message using JavaScript.</a></li>
-                  <li><a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="hover:text-[#00ADB5] underline transition-colors">Fetch the last email info from Gmail using the Gmail API.</a></li>
-                </ul>
-              </div>
+              {/* Individual Task Cards */}
+              {[
+                { title: 'Run any tool or technology in Docker.' },
+                { title: 'Set up and configure Apache webserver in Docker.' },
+                { title: 'Run the systemctl command inside a Docker container.' },
+                { title: 'Run graphical software inside a Docker container.' },
+                { title: 'Give sound card access to programs inside Docker.' },
+                { title: 'Set up Docker inside Docker (DIND).' },
+                { title: 'Install Firefox Browser inside Docker (GUI setup).' },
+                { title: 'Play VLC inside Docker (use X11 or VNC for GUI).' },
+                { title: 'Set up Apache Server inside Docker.' },
+                { title: 'Run a Linear Regression Model inside Docker.' },
+                { title: 'Run a Flask App inside Docker.' },
+                { title: 'Run a Menu-Based Python Project inside Docker.' },
+                { title: 'Write a blog post on companies using Linux and their benefits.' },
+                { title: 'Identify commands behind GUI programs in Linux.' },
+                { title: 'Change the logo or icon of any program in Linux.' },
+                { title: 'Add more terminals and GUI interfaces in Linux.' },
+                { title: 'Send email, WhatsApp messages, tweets, and SMS via the Linux terminal.' },
+                { title: 'Investigate the commands behind Ctrl+C and Ctrl+Z interrupts.' },
+                { title: 'Create an automation panel using Streamlit.' },
+                { title: 'Create an automation panel using Gradio.' },
+                { title: 'Create a folder, initialize Git, add a file, and commit with a message.' },
+                { title: 'Push changes to a new GitHub repository, create a feature1 branch, make changes, and merge.' },
+                { title: 'Fork a repository, clone it, make changes, and create a pull request.' },
+                { title: 'Capture a photo using JavaScript.' },
+                { title: 'Send an email using JavaScript or an API.' },
+                { title: 'Send a captured photo via email.' },
+                { title: 'Record video on button click and send via email.' },
+                { title: 'Send a WhatsApp message using JavaScript.' },
+                { title: 'Fetch the last email info from Gmail using the Gmail API.' },
+              ].map((task, idx) => (
+                <div key={idx} className="bg-[#393E46] rounded-xl p-5 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform flex flex-col justify-between h-full">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-[#00ADB5]">{task.title}</h3>
+                  </div>
+                  <a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-[#EEEEEE] bg-[#00ADB5] hover:bg-[#00ADB5]/90 px-4 py-2 rounded-lg font-medium transition-colors text-center">View on GitHub</a>
+                </div>
+              ))}
             </div>
           </div>
         </section>
