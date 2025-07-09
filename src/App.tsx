@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
 import Timeline from './components/Timeline';
 import Skills from './components/Skills';
@@ -94,7 +94,7 @@ function App() {
       <div ref={el => setSectionRef(el, 1)} className="fade-in-blur"><Timeline /></div>
       <div ref={el => setSectionRef(el, 2)} className="fade-in-blur"><Skills /></div>
       {/* Creative Task Section */}
-      <div className="fade-in-blur">
+      <div ref={el => setSectionRef(el, 3)} className="fade-in-blur">
         <section className="py-6 sm:py-10 bg-[#222831] text-[#EEEEEE] border-t border-b border-[#00ADB5]/10">
           <div className="max-w-6xl mx-auto px-2 sm:px-4">
             <div className="text-center mb-6 sm:mb-8">
@@ -105,56 +105,134 @@ function App() {
                 Explore practical DevOps, Linux, and coding challenges
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Individual Task Cards */}
-              {[
-                { title: 'Run any tool or technology in Docker.' },
-                { title: 'Set up and configure Apache webserver in Docker.' },
-                { title: 'Run the systemctl command inside a Docker container.' },
-                { title: 'Run graphical software inside a Docker container.' },
-                { title: 'Give sound card access to programs inside Docker.' },
-                { title: 'Set up Docker inside Docker (DIND).' },
-                { title: 'Install Firefox Browser inside Docker (GUI setup).' },
-                { title: 'Play VLC inside Docker (use X11 or VNC for GUI).' },
-                { title: 'Set up Apache Server inside Docker.' },
-                { title: 'Run a Linear Regression Model inside Docker.' },
-                { title: 'Run a Flask App inside Docker.' },
-                { title: 'Run a Menu-Based Python Project inside Docker.' },
-                { title: 'Write a blog post on companies using Linux and their benefits.' },
-                { title: 'Identify commands behind GUI programs in Linux.' },
-                { title: 'Change the logo or icon of any program in Linux.' },
-                { title: 'Add more terminals and GUI interfaces in Linux.' },
-                { title: 'Send email, WhatsApp messages, tweets, and SMS via the Linux terminal.' },
-                { title: 'Investigate the commands behind Ctrl+C and Ctrl+Z interrupts.' },
-                { title: 'Create an automation panel using Streamlit.' },
-                { title: 'Create an automation panel using Gradio.' },
-                { title: 'Create a folder, initialize Git, add a file, and commit with a message.' },
-                { title: 'Push changes to a new GitHub repository, create a feature1 branch, make changes, and merge.' },
-                { title: 'Fork a repository, clone it, make changes, and create a pull request.' },
-                { title: 'Capture a photo using JavaScript.' },
-                { title: 'Send an email using JavaScript or an API.' },
-                { title: 'Send a captured photo via email.' },
-                { title: 'Record video on button click and send via email.' },
-                { title: 'Send a WhatsApp message using JavaScript.' },
-                { title: 'Fetch the last email info from Gmail using the Gmail API.' },
-              ].map((task, idx) => (
-                <div key={idx} className="bg-[#393E46] rounded-xl p-5 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform flex flex-col justify-between h-full">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2 text-[#00ADB5]">{task.title}</h3>
+            {(() => {
+              const filters = [
+                'All',
+                'Docker',
+                'Python + Docker',
+                'Linux Terminal',
+                'Python',
+                'GitHub',
+                'JavaScript',
+              ];
+              const [activeFilter, setActiveFilter] = useState('All');
+              // Task data with new color logic
+              const taskData = [
+                // Docker
+                { title: 'Run any tool or technology in Docker.', category: 'Docker' },
+                { title: 'Set up and configure Apache webserver in Docker.', category: 'Docker' },
+                { title: 'Run the systemctl command inside a Docker container.', category: 'Docker' },
+                { title: 'Run graphical software inside a Docker container.', category: 'Docker' },
+                { title: 'Give sound card access to programs inside Docker.', category: 'Docker' },
+                { title: 'Set up Docker inside Docker (DIND).', category: 'Docker' },
+                { title: 'Install Firefox Browser inside Docker (GUI setup).', category: 'Docker' },
+                { title: 'Play VLC inside Docker (use X11 or VNC for GUI).', category: 'Docker' },
+                { title: 'Set up Apache Server inside Docker.', category: 'Docker' },
+                // Python + Docker
+                { title: 'Run a Linear Regression Model inside Docker.', category: 'Python + Docker' },
+                { title: 'Run a Flask App inside Docker.', category: 'Python + Docker' },
+                { title: 'Run a Menu-Based Python Project inside Docker.', category: 'Python + Docker' },
+                // Linux Terminal
+                { title: 'Write a blog post on companies using Linux and their benefits.', category: 'Linux Terminal' },
+                { title: 'Identify commands behind GUI programs in Linux.', category: 'Linux Terminal' },
+                { title: 'Change the logo or icon of any program in Linux.', category: 'Linux Terminal' },
+                { title: 'Add more terminals and GUI interfaces in Linux.', category: 'Linux Terminal' },
+                { title: 'Send email, WhatsApp messages, tweets, and SMS via the Linux terminal.', category: 'Linux Terminal' },
+                { title: 'Investigate the commands behind Ctrl+C and Ctrl+Z interrupts.', category: 'Linux Terminal' },
+                // Python
+                { title: 'Create an automation panel using Streamlit.', category: 'Python' },
+                { title: 'Create an automation panel using Gradio.', category: 'Python' },
+                // GitHub
+                { title: 'Create a folder, initialize Git, add a file, and commit with a message.', category: 'GitHub' },
+                { title: 'Push changes to a new GitHub repository, create a feature1 branch, make changes, and merge.', category: 'GitHub' },
+                { title: 'Fork a repository, clone it, make changes, and create a pull request.', category: 'GitHub' },
+                // JavaScript
+                { title: 'Capture a photo using JavaScript.', category: 'JavaScript' },
+                { title: 'Send an email using JavaScript or an API.', category: 'JavaScript' },
+                { title: 'Send a captured photo via email.', category: 'JavaScript' },
+                { title: 'Record video on button click and send via email.', category: 'JavaScript' },
+                { title: 'Send a WhatsApp message using JavaScript.', category: 'JavaScript' },
+                { title: 'Fetch the last email info from Gmail using the Gmail API.', category: 'JavaScript' },
+              ];
+              // Color logic for cards and filter highlights
+              const categoryStyles: { [key: string]: { card: string; highlight: string } } = {
+                'Docker': {
+                  card: 'bg-blue-600 text-white',
+                  highlight: 'bg-cyan-400 text-white', // aqua
+                },
+                'Python + Docker': {
+                  card: 'bg-purple-700 text-white',
+                  highlight: 'bg-purple-300 text-purple-900', // light-purple
+                },
+                'Linux Terminal': {
+                  card: 'bg-[#4D4D4D] text-[#00FF00]',
+                  highlight: 'bg-gray-500 text-[#00FF00]',
+                },
+                'Python': {
+                  card: 'bg-[#306998] text-[#FFD43B]',
+                  highlight: 'bg-[#FFD43B] text-[#306998]',
+                },
+                'GitHub': {
+                  card: 'bg-[#181717] text-white',
+                  highlight: 'bg-[#6CC644] text-[#181717]',
+                },
+                'JavaScript': {
+                  card: 'bg-[#F7DF1E] text-[#323330]',
+                  highlight: 'bg-[#323330] text-[#F7DF1E]',
+                },
+                'All': {
+                  card: '',
+                  highlight: 'bg-[#00ADB5] text-white',
+                },
+              };
+              const filteredTasks = activeFilter === 'All' ? taskData : taskData.filter(t => t.category === activeFilter);
+              return (
+                <>
+                  <div className="flex flex-wrap justify-center gap-2 mb-8">
+                    {filters.map(filter => (
+                      <button
+                        key={filter}
+                        onClick={() => setActiveFilter(filter)}
+                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base border border-[#00ADB5]/30 ${
+                          activeFilter === filter
+                            ? categoryStyles[filter]?.highlight || 'bg-[#00ADB5] text-white shadow'
+                            : 'bg-[#222831] text-[#EEEEEE]/70 hover:bg-[#00ADB5]/20 hover:text-[#00ADB5]'
+                        }`}
+                      >
+                        {filter}
+                      </button>
+                    ))}
                   </div>
-                  <a href="https://github.com/Yash-xoxo/Internship_Task" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-[#EEEEEE] bg-[#00ADB5] hover:bg-[#00ADB5]/90 px-4 py-2 rounded-lg font-medium transition-colors text-center">View on GitHub</a>
-                </div>
-              ))}
-            </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredTasks.map((task, idx) => (
+                      <div key={idx} className={`${categoryStyles[task.category]?.card || ''} rounded-xl p-5 shadow-lg border border-[#00ADB5]/20 hover:scale-105 transition-transform flex flex-col justify-between h-full`}>
+                        <div>
+                          <h3 className="text-lg font-semibold mb-2">{task.title}</h3>
+                        </div>
+                        <a
+                          href="https://github.com/Yash-xoxo/Internship_Task"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`mt-4 inline-block font-medium transition-colors text-center px-4 py-2 rounded-lg ${categoryStyles[task.category]?.highlight || 'bg-[#00ADB5] text-white'}`}
+                        >
+                          View on GitHub
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </section>
       </div>
-      <div ref={el => setSectionRef(el, 3)} className="fade-in-blur"><Projects /></div>
-      <div ref={el => setSectionRef(el, 4)} className="fade-in-blur"><Certifications /></div>
-      <div ref={el => setSectionRef(el, 5)} className="fade-in-blur"><Blog /></div>
-      <div ref={el => setSectionRef(el, 6)} className="fade-in-blur"><Aspirations /></div>
-      <div ref={el => setSectionRef(el, 7)} className="fade-in-blur"><Contact /></div>
-      <div ref={el => setSectionRef(el, 8)} className="fade-in-blur"><Footer /></div>
+
+      <div ref={el => setSectionRef(el, 4)} className="fade-in-blur"><Projects /></div>
+      <div ref={el => setSectionRef(el, 5)} className="fade-in-blur"><Certifications /></div>
+      <div ref={el => setSectionRef(el, 6)} className="fade-in-blur"><Blog /></div>
+      <div ref={el => setSectionRef(el, 7)} className="fade-in-blur"><Aspirations /></div>
+      <div ref={el => setSectionRef(el, 8)} className="fade-in-blur"><Contact /></div>
+      <div ref={el => setSectionRef(el, 9)} className="fade-in-blur"><Footer /></div>
     </div>
   );
 }
