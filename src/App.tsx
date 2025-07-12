@@ -142,6 +142,7 @@ function App() {
                 // Python
                 { title: 'Create an automation panel using Streamlit.', category: 'Python' },
                 { title: 'Create an automation panel using Gradio.', category: 'Python' },
+                { title: 'A menu based project', category: 'Python' },
                 // GitHub
                 { title: 'Create a folder, initialize Git, add a file, and commit with a message.', category: 'GitHub' },
                 { title: 'Push changes to a new GitHub repository, create a feature1 branch, make changes, and merge.', category: 'GitHub' },
@@ -177,7 +178,7 @@ function App() {
                   highlight: 'bg-[#6CC644] text-[#181717]',
                 },
                 'JavaScript': {
-                  card: 'bg-[#F7DF1E] text-[#323330]',
+                  card: 'bg-yellow-500 text-[#323330]',
                   highlight: 'bg-[#323330] text-[#F7DF1E]',
                 },
                 'All': {
@@ -272,6 +273,9 @@ function App() {
                                 case 'Create an automation panel using Gradio.':
                                   window.open('https://gradio.app/', '_blank');
                                   break;
+                                case 'A menu based project':
+                                  window.open('https://github.com/Yash-xoxo/DAY1-8_Project.git', '_blank');
+                                  break;
                                 default:
                                   alert('This task requires local environment setup. Please check the GitHub repository for instructions.');
                               }
@@ -286,7 +290,8 @@ function App() {
                               'Send a WhatsApp message using JavaScript.',
                               'Fetch the last email info from Gmail using the Gmail API.',
                               'Create an automation panel using Streamlit.',
-                              'Create an automation panel using Gradio.'
+                              'Create an automation panel using Gradio.',
+                              'A menu based project'
                             ];
                             
                             if (executableTasks.includes(task.title)) {
