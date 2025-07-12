@@ -209,14 +209,99 @@ function App() {
                         <div>
                           <h3 className="text-lg font-semibold mb-2">{task.title}</h3>
                         </div>
-                        <a
-                          href="https://github.com/Yash-xoxo/Internship_Task"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`mt-4 inline-block font-medium transition-colors text-center px-4 py-2 rounded-lg ${categoryStyles[task.category]?.highlight || 'bg-[#00ADB5] text-white'}`}
-                        >
-                          View on GitHub
-                        </a>
+                        <div className="mt-4 flex gap-2">
+                          <a
+                            href="https://github.com/Yash-xoxo/Internship_Task"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex-1 inline-block font-medium transition-colors text-center px-4 py-2 rounded-lg ${categoryStyles[task.category]?.highlight || 'bg-[#00ADB5] text-white'}`}
+                          >
+                            View on GitHub
+                          </a>
+                          {/* Show Run Live button only for executable tasks */}
+                          {(() => {
+                            const handleRunLive = () => {
+                              switch (task.title) {
+                                case 'Capture a photo using JavaScript.':
+                                  // Open camera and capture photo
+                                  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                                    navigator.mediaDevices.getUserMedia({ video: true })
+                                      .then(stream => {
+                                        const video = document.createElement('video');
+                                        video.srcObject = stream;
+                                        video.play();
+                                        setTimeout(() => {
+                                          const canvas = document.createElement('canvas');
+                                          canvas.width = video.videoWidth;
+                                          canvas.height = video.videoHeight;
+                                          const ctx = canvas.getContext('2d');
+                                          ctx?.drawImage(video, 0, 0);
+                                          const link = document.createElement('a');
+                                          link.download = 'captured-photo.png';
+                                          link.href = canvas.toDataURL();
+                                          link.click();
+                                          stream.getTracks().forEach(track => track.stop());
+                                        }, 2000);
+                                      })
+                                      .catch(err => alert('Camera access denied: ' + err.message));
+                                  } else {
+                                    alert('Camera not available');
+                                  }
+                                  break;
+                                case 'Send an email using JavaScript or an API.':
+                                  // Open email client
+                                  window.open('mailto:?subject=Test Email&body=This is a test email from the portfolio task.', '_blank');
+                                  break;
+                                case 'Send a captured photo via email.':
+                                  alert('This feature requires backend integration. Please check the GitHub repository for implementation.');
+                                  break;
+                                case 'Record video on button click and send via email.':
+                                  alert('This feature requires backend integration. Please check the GitHub repository for implementation.');
+                                  break;
+                                case 'Send a WhatsApp message using JavaScript.':
+                                  // Open WhatsApp with pre-filled message
+                                  const message = encodeURIComponent('Hello! This message was sent from the portfolio task.');
+                                  window.open(`https://wa.me/?text=${message}`, '_blank');
+                                  break;
+                                case 'Fetch the last email info from Gmail using the Gmail API.':
+                                  alert('This requires Gmail API setup. Please check the GitHub repository for implementation.');
+                                  break;
+                                case 'Create an automation panel using Streamlit.':
+                                  window.open('https://streamlit.io/', '_blank');
+                                  break;
+                                case 'Create an automation panel using Gradio.':
+                                  window.open('https://gradio.app/', '_blank');
+                                  break;
+                                default:
+                                  alert('This task requires local environment setup. Please check the GitHub repository for instructions.');
+                              }
+                            };
+                            
+                            // Only show Run Live for certain tasks
+                            const executableTasks = [
+                              'Capture a photo using JavaScript.',
+                              'Send an email using JavaScript or an API.',
+                              'Send a captured photo via email.',
+                              'Record video on button click and send via email.',
+                              'Send a WhatsApp message using JavaScript.',
+                              'Fetch the last email info from Gmail using the Gmail API.',
+                              'Create an automation panel using Streamlit.',
+                              'Create an automation panel using Gradio.'
+                            ];
+                            
+                            if (executableTasks.includes(task.title)) {
+                              return (
+                                <button
+                                  onClick={handleRunLive}
+                                  className={`flex-1 inline-block font-medium transition-colors text-center px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white`}
+                                >
+                                  Run Live
+                                </button>
+                              );
+                            }
+                            return null;
+                          })()}
+                        </div>
                       </div>
                     ))}
                   </div>
