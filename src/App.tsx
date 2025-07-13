@@ -142,7 +142,7 @@ function App() {
                 // Python
                 { title: 'Create an automation panel using Streamlit.', category: 'Python' },
                 { title: 'Create an automation panel using Gradio.', category: 'Python' },
-                { title: 'A menu based project', category: 'Python' },
+                { title: 'A menu based project in Python', category: 'Python' },
                 // GitHub
                 { title: 'Create a folder, initialize Git, add a file, and commit with a message.', category: 'GitHub' },
                 { title: 'Push changes to a new GitHub repository, create a feature1 branch, make changes, and merge.', category: 'GitHub' },
