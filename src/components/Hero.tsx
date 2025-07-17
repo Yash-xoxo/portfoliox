@@ -56,8 +56,8 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center relative mt-8 lg:mt-0">
           <div className="w-40 h-40 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-[#00ADB5] flex items-center justify-center animate-float bg-[#222831]/80">
             <img
-              src="https://github.com/Yash-xoxo/Personal/blob/main/noodles%20eating%20GIF.gif?raw=true"
-              alt="Profile GIF"
+              src="https://github.com/Yash-xoxo/yash-search/blob/main/assets/img/passport-new.jpg?raw=true"
+              alt="Profile Picture"
               className="object-cover w-full h-full"
               loading="lazy"
             />
