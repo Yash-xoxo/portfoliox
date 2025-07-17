@@ -8,6 +8,7 @@ import Blog from './components/Blog';
 import Aspirations from './components/Aspirations';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ShootingStarBackground from './components/ShootingStarBackground';
 
 function App() {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -89,6 +90,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-transparent relative">
+      <ShootingStarBackground />
       <div className="background-animate" />
       <div ref={el => setSectionRef(el, 0)} className="fade-in-blur"><Hero /></div>
       <div ref={el => setSectionRef(el, 1)} className="fade-in-blur"><Timeline /></div>
