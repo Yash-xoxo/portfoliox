@@ -1,6 +1,6 @@
 # portfoliox
 
-I'm Yash, 22 years old, im from India, Learning Devops an cloud.
+I'm Yash, 22 years old, im from India, Learning Devops  with cloud.
 
 ## 🚀 Live Demo
 [View the live site](https://yash-xoxo.github.io/portfoliox/)
