@@ -9,8 +9,9 @@ import Aspirations from './components/Aspirations';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ShootingStarBackground from './components/ShootingStarBackground';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+function MainPage() {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -326,6 +327,24 @@ function App() {
       <div ref={el => setSectionRef(el, 8)} className="fade-in-blur"><Contact /></div>
       <div ref={el => setSectionRef(el, 9)} className="fade-in-blur"><Footer /></div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/contact" element={
+          <div className="min-h-screen flex flex-col items-center justify-center bg-[#232946] text-[#EEEEEE] px-4">
+            <div className="w-full max-w-xl bg-[#1a1a2e] rounded-2xl shadow-2xl p-8 mt-12 mb-12 border border-[#00ADB5]/20 animate-fadeInUp">
+              <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-[#00ADB5]">Get In Touch</h1>
+              <Contact />
+            </div>
+          </div>
+        } />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
